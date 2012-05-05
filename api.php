@@ -1,13 +1,12 @@
 <?
-
 defined('BW') or die("Acesso negado!");
 
-class bwNoticias extends bwComponent
+class bwConvenios extends bwComponent
 {
     // variaveis obrigatórias
-    var $id = 'noticias';
-    var $nome = 'Notícias';
-    var $adm_url_default = 'adm.php?com=noticias&view=lista';
+    var $id = 'convenios';
+    var $nome = 'Convenios';
+    var $adm_url_default = 'adm.php?com=convenios&view=lista';
     var $adm_visivel = true;
     
     

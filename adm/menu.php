@@ -1,16 +1,16 @@
 <?
 defined('BW') or die("Acesso negado!");
 
-$tituloPage = "Administração de Notícias";
+$tituloPage = "Administração de Convénios";
 
 $menu = array(
     '0' => array(
-        'url' => 'adm.php?com=noticias&view=lista',
-        'tit' => 'Notícias'
+        'url' => 'adm.php?com=convenios&view=lista',
+        'tit' => 'Convénios'
     ),
     '1' => array(
-        'url' => 'adm.php?com=noticias&sub=categorias&view=lista',
-        'tit' => 'Categorias'
+        'url' => 'adm.php?com=convenios&sub=cidades&view=lista',
+        'tit' => 'Cidades'
     )
 );
 

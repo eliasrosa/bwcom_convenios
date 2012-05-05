@@ -1,6 +1,6 @@
 <?php
 
-class NoticiaCategoria extends bwRecord
+class ConvenioCidade extends bwRecord
 {
     var $labels = array(
         'nome' => 'Nome',
@@ -9,7 +9,7 @@ class NoticiaCategoria extends bwRecord
     
     public function setTableDefinition()
     {
-        $this->setTableName('bw_noticias_categorias');
+        $this->setTableName('bw_convenios_cidades');
         $this->hasColumn('id', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
@@ -48,19 +48,19 @@ class NoticiaCategoria extends bwRecord
              ));
     }
 
-   public function setUp()
+    public function setUp()
     {
         parent::setUp();
 
-        $this->hasMany('Noticia as Noticias', array(
+        $this->hasMany('Convenio as Convenios', array(
             'local' => 'id',
-            'foreign' => 'idcategoria'
+            'foreign' => 'cidade_id'
         ));
     }
     
     public function salvar($dados)
     {
-        $db = bwComponent::save('NoticiaCategoria', $dados);
+        $db = bwComponent::save('ConvenioCidade', $dados);
         $r = bwComponent::retorno($db);
 
         return $r;
@@ -68,11 +68,9 @@ class NoticiaCategoria extends bwRecord
 
     public function remover($dados)
     {
-        $db = bwComponent::remover('NoticiaCategoria', $dados);
+        $db = bwComponent::remover('ConvenioCidade', $dados);
         $r = bwComponent::retorno($db);
 
         return $r;
-    }    
-    
-    
+    }
 }

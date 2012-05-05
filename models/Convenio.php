@@ -1,19 +1,18 @@
 <?php
 
-class Noticia extends bwRecord
+class Convenio extends bwRecord
 {
     var $labels = array(
-        'idcategoria' => 'Categoria',
-        'datahora' => 'Data/Hora',
-        'titulo' => 'Título',
-        'titulo_resumido' => 'Título resumido',
-        'resumo' => 'Notícia resumida',
-        'texto' => 'Notícia completa'
+        'cidade_id' => 'Cidade',
+        'segmento' => 'Segmento',
+        'nome' => 'Nome',
+        'desconto' => 'Desconto',
+        'condicao' => 'Condição'
     );
 
     public function setTableDefinition()
     {
-        $this->setTableName('bw_noticias');
+        $this->setTableName('bw_convenios');
         $this->hasColumn('id', 'integer', 4, array(
             'type' => 'integer',
             'length' => 4,
@@ -22,7 +21,7 @@ class Noticia extends bwRecord
             'primary' => true,
             'autoincrement' => true,
         ));
-        $this->hasColumn('idcategoria', 'integer', 4, array(
+        $this->hasColumn('cidade_id', 'integer', 4, array(
             'type' => 'integer',
             'length' => 4,
             'fixed' => false,
@@ -32,49 +31,40 @@ class Noticia extends bwRecord
             'autoincrement' => false,
             'integer' => true,
         ));
-        $this->hasColumn('datahora', 'timestamp', null, array(
-            'type' => 'timestamp',
-            'fixed' => false,
-            'unsigned' => false,
-            'primary' => false,
-            'notnull' => true,
-            'notblank' => true,
-            'autoincrement' => false,
-        ));
-        $this->hasColumn('titulo', 'string', 255, array(
+        $this->hasColumn('segmento', 'string', 255, array(
             'type' => 'string',
             'length' => 255,
             'fixed' => false,
             'unsigned' => false,
             'primary' => false,
-            'notnull' => true,
-            'unique' => true,
             'notblank' => true,
             'autoincrement' => false,
         ));
-        $this->hasColumn('titulo_resumido', 'string', 255, array(
+        $this->hasColumn('nome', 'string', 255, array(
             'type' => 'string',
             'length' => 255,
             'fixed' => false,
             'unsigned' => false,
             'primary' => false,
-            'notnull' => false,
+            'notblank' => true,
             'autoincrement' => false,
         ));
-        $this->hasColumn('resumo', 'string', null, array(
+        $this->hasColumn('desconto', 'string', 255, array(
             'type' => 'string',
+            'length' => 255,
             'fixed' => false,
             'unsigned' => false,
             'primary' => false,
-            'notnull' => false,
+            'notblank' => true,
             'autoincrement' => false,
         ));
-        $this->hasColumn('texto', 'string', null, array(
+        $this->hasColumn('condicao', 'string', 255, array(
             'type' => 'string',
+            'length' => 255,
             'fixed' => false,
             'unsigned' => false,
             'primary' => false,
-            'notnull' => true,
+            'notblank' => true,
             'autoincrement' => false,
         ));
         $this->hasColumn('status', 'integer', 4, array(
@@ -88,33 +78,19 @@ class Noticia extends bwRecord
         ));
     }
 
-    public function setDatahora($v)
-    {
-        if (preg_match('#^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}$#', $v))
-            return $this->_set('datahora', bwUtil::data($v));
-        return $v;
-    }
-
-    public function setTitulo($v)
-    {
-        return $this->_set('titulo', trim(bwUtil::cleanText($v)));
-    }
-
     public function setUp()
     {
         parent::setUp();
 
-        $this->hasOne('NoticiaCategoria as Categoria', array(
-            'local' => 'idcategoria',
+        $this->hasOne('ConvenioCidade as Cidade', array(
+            'local' => 'cidade_id',
             'foreign' => 'id'
         ));
-
-        $this->setBwImagem('noticias', 'imagens');
     }
     
     public function salvar($dados)
     {
-        $db = bwComponent::save('Noticia', $dados);
+        $db = bwComponent::save('Convenio', $dados);
         $r = bwComponent::retorno($db);
 
         return $r;
@@ -122,7 +98,7 @@ class Noticia extends bwRecord
 
     public function remover($dados)
     {
-        $db = bwComponent::remover('Noticia', $dados);
+        $db = bwComponent::remover('Convenio', $dados);
         $r = bwComponent::retorno($db);
 
         return $r;

@@ -4,35 +4,35 @@ defined('BW') or die("Acesso negado!");
 $dados = bwRequest::getVar('dados', array(), 'post');
 
 
-// NOTÍCIAS
+// CONVENIOS
 /////////////////////////////////////////////////////////////
 
-if ($task == 'noticiaSave')
+if ($task == 'convenioSave')
 {
-    $r = Noticia::salvar($dados);        
+    $r = Convenio::salvar($dados);        
 }
 
-if ($task == 'noticiaRemover')
+if ($task == 'convenioRemover')
 {
-    $r = Noticia::remover($dados);
-    $r['redirect'] = bwRouter::_("adm.php?com=noticias&view=lista");
+    $r = Convenio::remover($dados);
+    $r['redirect'] = bwRouter::_("adm.php?com=convenios&view=lista");
 }
 
 
 
 
-// CATEGORIAS
+// CIDADES
 /////////////////////////////////////////////////////////////
 
-if ($task == 'categoriaSave')
+if ($task == 'cidadeSave')
 {
-    $r = NoticiaCategoria::salvar($dados);
+    $r = ConvenioCidade::salvar($dados);
 }
 
-if ($task == 'categoriaRemover')
+if ($task == 'cidadeRemover')
 {
-    $r = NoticiaCategoria::remover($dados);
-    $r['redirect'] = bwRouter::_("adm.php?com=noticias&sub=categorias&view=lista");
+    $r = ConvenioCidade::remover($dados);
+    $r['redirect'] = bwRouter::_("adm.php?com=convenios&sub=cidades&view=lista");
 }
 
 die(json_encode($r));

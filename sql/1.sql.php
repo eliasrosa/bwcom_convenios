@@ -2,24 +2,24 @@
 
 
 -- 
-ALTER TABLE `bw_versao` ADD `com_noticias_1` INT(1) NOT NULL;
+ALTER TABLE `bw_versao` ADD `com_convenios_1` INT(1) NOT NULL;
 
 
 --
-CREATE TABLE IF NOT EXISTS `bw_noticias` (
+CREATE TABLE IF NOT EXISTS `bw_convenios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idcategoria` int(11) DEFAULT NULL,
-  `datahora` datetime NOT NULL,
-  `titulo` varchar(255) NOT NULL,
-  `resumo` longtext,
-  `texto` longtext NOT NULL,
+  `cidade_id` int(11) NOT NULL,
+  `segmento` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `desconto` varchar(255) NOT NULL,
+  `condicao` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 --
-CREATE TABLE IF NOT EXISTS `bw_noticias_categorias` (
+CREATE TABLE `bw_convenios_cidades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   `descricao` longtext,
@@ -27,6 +27,3 @@ CREATE TABLE IF NOT EXISTS `bw_noticias_categorias` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
---
-ALTER TABLE `bw_noticias` ADD `titulo_resumido` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `titulo`;
