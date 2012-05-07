@@ -5,7 +5,7 @@ class bwConvenios extends bwComponent
 {
     // variaveis obrigatórias
     var $id = 'convenios';
-    var $nome = 'Convenios';
+    var $nome = 'Convênios';
     var $adm_url_default = 'adm.php?com=convenios&view=lista';
     var $adm_visivel = true;
     

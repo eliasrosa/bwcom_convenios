@@ -7,7 +7,7 @@ $id = bwRequest::getVar('id', 0, 'get');
 $i = bwComponent::openById('Convenio', $id);
 
 $form = new bwForm($i);
-$form->addH2('Dados do convénio');
+$form->addH2('Dados do convênio');
 $form->addInputID();
 $form->addSelectDB('cidade_id', 'ConvenioCidade');
 $form->addInput('segmento');

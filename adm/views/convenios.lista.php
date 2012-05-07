@@ -2,7 +2,7 @@
 defined('BW') or die("Acesso negado!");
 
 echo bwAdm::createHtmlSubMenu(0);
-echo bwButton::redirect('Criar novo convénio', 'adm.php?com=convenios&view=cadastro');
+echo bwButton::redirect('Criar novo convênio', 'adm.php?com=convenios&view=cadastro');
 
 class bwGridConvenios extends bwGrid
 {
