@@ -2,7 +2,7 @@
 defined('BW') or die("Acesso negado!");
 
 echo bwAdm::createHtmlSubMenu(0);
-echo bwButton::redirect('Criar novo convênio', 'adm.php?com=convenios&view=cadastro');
+echo bwButton::redirect('Criar novo convênio', '/convenios/cadastro/0');
 
 class bwGridConvenios extends bwGrid
 {
@@ -22,12 +22,12 @@ class bwGridConvenios extends bwGrid
 
     function col0($i)
     {
-        return '<a href="' . bwRouter::_('adm.php?com=convenios&view=cadastro&id=' . $i->id) . '">'.$i->id.'</a>';
+        return '<a href="' . $i->getUrl('/convenios/cadastro') . '">'.$i->id.'</a>';
     }
 
     function col1($i)
     {
-        return '<a href="' . bwRouter::_('adm.php?com=convenios&view=cadastro&id=' . $i->id) . '">'.$i->nome.'</a>';
+        return $i->nome;
     }
 
     function col2($i)

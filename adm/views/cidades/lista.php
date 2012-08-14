@@ -2,7 +2,7 @@
 defined('BW') or die("Acesso negado!");
 
 echo bwAdm::createHtmlSubMenu(1);
-echo bwButton::redirect('Criar nova cidade', 'adm.php?com=convenios&sub=cidades&view=cadastro');
+echo bwButton::redirect('Criar nova cidade', '/convenios/cidades/cadastro/0');
 
 class bwGridConveniosCidades extends bwGrid
 {
@@ -20,12 +20,12 @@ class bwGridConveniosCidades extends bwGrid
 
     function col0($i)
     {
-        return '<a href="' . bwRouter::_('adm.php?com=convenios&sub=cidades&view=cadastro&id=' . $i->id) . '">'.$i->id.'</a>';
+        return '<a href="' . $i->getUrl('/convenios/cidades/cadastro') . '">'.$i->id.'</a>';
     }
 
     function col1($i)
     {
-        return '<a href="' . bwRouter::_('adm.php?com=convenios&sub=cidades&view=cadastro&id=' . $i->id) . '">'.$i->nome.'</a>';
+        return $i->nome;
     }
 
     function col2($i)

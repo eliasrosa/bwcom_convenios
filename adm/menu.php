@@ -5,11 +5,11 @@ $tituloPage = "Administração de Convénios";
 
 $menu = array(
     '0' => array(
-        'url' => 'adm.php?com=convenios&view=lista',
+        'url' => '/convenios/lista',
         'tit' => 'Convênios'
     ),
     '1' => array(
-        'url' => 'adm.php?com=convenios&sub=cidades&view=lista',
+        'url' => '/convenios/cidades/lista',
         'tit' => 'Cidades'
     )
 );

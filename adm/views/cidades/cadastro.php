@@ -3,10 +3,10 @@ defined('BW') or die("Acesso negado!");
 
 echo bwAdm::createHtmlSubMenu(1);
 
-$id = bwRequest::getVar('id', 0, 'get');
+$id = bwRequest::getInt('id');
 $i = bwComponent::openById('ConvenioCidade', $id);
 
-$form = new bwForm($i);
+$form = new bwForm($i, bwRouter::_('/convenios/task'));
 $form->addH2('Dados da cidade');
 $form->addInputID();
 $form->addInput('nome');
